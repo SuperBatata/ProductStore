@@ -26,6 +26,8 @@ namespace PS.Console
             p.Password = "0000";
             p.ConfirmPassword = "0000";
 
+            
+
             S.Console.WriteLine("Resultat P2: ");
 
             Provider p2 = new Provider()
@@ -51,12 +53,12 @@ namespace PS.Console
             Product ch = new Chemical();
             pr.GetMyType(); bl.GetMyType(); ch.GetMyType();
 
-            
 
-            ;
+            p.GetProducts("Price", "200");
+
 
         }
 
-
+            
     }
 }

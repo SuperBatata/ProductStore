@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PS.Domain.Entities
 {
-    public class Provider
+    public class Provider : Concept
     {
         public Provider()
         {
@@ -90,6 +90,55 @@ namespace PS.Domain.Entities
                 else { return false; }
             }
         }
+
+
+        public List<Product> GetProducts(string filterType, string filterValue)
+        {
+            List<Product> list = new List<Product>();
+            foreach (var item in Products)
+            {
+
+                switch (filterType)
+                {
+                    case "Price":
+                        {
+                            double y = 0;
+                            double.TryParse(filterValue, out y);
+                            if (item.Price == y)
+                            {
+                                list.Add(item);
+                            }
+                            break;
+                        }
+                    case "Quantity":
+                        int x = 0;
+                        int.TryParse(filterValue, out x);
+                        if (item.Price == x)
+                        {
+                            list.Add(item);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+
+            }
+            return list;
+        }
+
+        public override string GetDetails()
+        {
+            string details = $"[{Id},{Username},{Email},{isApproved}]";
+            details = details + "\n List of products: \n";
+
+            foreach (Product item in Products)
+            {
+                details += "\t " + item;
+            }
+            return details;
+        }
+      
 
     }
 

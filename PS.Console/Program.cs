@@ -54,7 +54,46 @@ namespace PS.Console
             pr.GetMyType(); bl.GetMyType(); ch.GetMyType();
 
 
-            p.GetProducts("Price", "200");
+
+            Product produit1 = new Product()
+            {
+                ProductId = 1,
+                Name = "Product 1",
+                Description = "Product 1 description",
+                Price = 100,
+                
+                
+            };
+            Product produit2 = new Product()
+            {
+                ProductId = 2,
+                Name = "produit2",
+                Description = "description2",
+                Price = 2,
+                Quantity = 2,
+                DateProd = S.DateTime.Now,
+                
+            };
+
+           
+
+            IList<Product> products = new List<Product>();
+            products.Add(produit1);
+            products.Add(produit2);
+
+
+            Provider p3 = new Provider()
+            {
+                Id = 1,
+                Username = "monji",
+                DateCreated = S.DateTime.Now,
+                Password = "00002200",
+                ConfirmPassword = "00002200",
+                Products = products
+            };
+
+
+            p3.GetProducts("Price", "2");
 
 
         }

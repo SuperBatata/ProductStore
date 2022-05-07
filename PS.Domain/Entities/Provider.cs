@@ -95,35 +95,34 @@ namespace PS.Domain.Entities
         public List<Product> GetProducts(string filterType, string filterValue)
         {
             List<Product> list = new List<Product>();
-            foreach (var item in Products)
-            {
+           
 
                 switch (filterType)
                 {
-                    case "Price":
+                    case "Name":
                         {
-                            double y = 0;
-                            double.TryParse(filterValue, out y);
-                            if (item.Price == y)
+                            foreach (Product p in Products)
                             {
-                                list.Add(item);
+                                if (p.Name.Equals(filterValue))
+                                {
+                                    Console.WriteLine("Product found");
+                                }
                             }
                             break;
                         }
                     case "Quantity":
-                        int x = 0;
-                        int.TryParse(filterValue, out x);
-                        if (item.Price == x)
+                        foreach (Product p in Products)
                         {
-                            list.Add(item);
+                            if (p.Quantity.Equals(filterValue))
+                            {
+                                Console.WriteLine("Product found");
+                            }
                         }
-                        break;
-                    default:
                         break;
                 }
 
 
-            }
+            
             return list;
         }
 

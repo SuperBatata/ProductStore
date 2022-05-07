@@ -74,12 +74,12 @@ namespace PS.Console
                 DateProd = S.DateTime.Now,
                 
             };
+            
+            S.Console.WriteLine("produit1 : " + produit1.Name);
 
-           
-
-            IList<Product> products = new List<Product>();
-            products.Add(produit1);
-            products.Add(produit2);
+            IList<Product> lproducts = new List<Product>();
+            lproducts.Add(produit1);
+            lproducts.Add(produit2);
 
 
             Provider p3 = new Provider()
@@ -89,11 +89,13 @@ namespace PS.Console
                 DateCreated = S.DateTime.Now,
                 Password = "00002200",
                 ConfirmPassword = "00002200",
-                Products = products
+                Products = lproducts
             };
 
+            S.Console.WriteLine("produits p3 : " + lproducts[0].Name);
 
-            p3.GetProducts("Price", "2");
+
+            p3.GetProducts("Name", "product2");
 
 
         }

@@ -23,6 +23,8 @@ namespace PS.Domain.Entities
 
             return $"{Name} - {Description} - {Price} - {Quantity}";
 
+            
+
         }
 
         public Product()
